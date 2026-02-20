@@ -1,0 +1,82 @@
+"// frontend entry" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Leave Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Dashboard</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active" data-section="apply-leave">📝 Apply Leave</li>
+                <li data-section="team-status">👥 Team Status</li>
+                <li data-section="leave-history">📅 Leave History</li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="header">
+                <h1>Smart Leave Management System</h1>
+                <p>Welcome back! Manage your leaves efficiently.</p>
+            </header>
+
+            <div class="content">
+
+                <!-- Apply Leave Section -->
+                <section id="apply-leave" class="section active">
+                    <h2>Apply for Leave</h2>
+                    <form id="leaveForm">
+                        <div class="form-group">
+                            <label for="employeeId">Employee ID</label>
+                            <input type="text" id="employeeId" placeholder="E101" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="leaveDays">Number of Leave Days</label>
+                            <input type="number" id="leaveDays" placeholder="5" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason">Reason</label>
+                            <textarea id="reason" placeholder="Optional reason for leave" rows="3"></textarea>
+                        </div>
+
+                        <button type="submit">Submit Leave Request</button>
+                    </form>
+                    <div id="leaveResult" class="result"></div>
+                </section>
+
+                <!-- Team Status Section -->
+                <section id="team-status" class="section" style="display: none;">
+                    <h2>Team Status</h2>
+                    <button onclick="loadTeamStatus()">Refresh Status</button>
+                    <div id="teamStatus" class="result"></div>
+                </section>
+
+                <!-- Leave History Section -->
+                <section id="leave-history" class="section" style="display: none;">
+                    <h2>Leave History</h2>
+                    <button onclick="loadLeaveHistory()">View History</button>
+                    <div id="leaveHistory" class="result"></div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="sript.js"></script>
+
+</body>
+</html>
